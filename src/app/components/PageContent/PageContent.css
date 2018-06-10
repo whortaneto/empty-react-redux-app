@@ -1,0 +1,8 @@
+
+.pageContent {
+  grid-area: content;
+  height: 100%;
+  /* TODO CSS */
+  width: 85%;
+  /* width: 60%; */
+}

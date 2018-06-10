@@ -1,0 +1,17 @@
+html, body, .fillArea {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(249, 249, 249);
+  font-family:'Roboto', 'Noto', sans-serif
+}
+
+.mainContainer {
+  display: grid;
+  grid-template-rows: 68px auto;
+  grid-row-gap: 30px;
+  grid-template-areas:
+    "header"
+    "content";
+  justify-items: center;
+}
