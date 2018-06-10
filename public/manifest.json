@@ -1,6 +1,6 @@
 {
-  "short_name": "viewer",
-  "name": "viewer",
+  "short_name": "empty-app",
+  "name": "empty-app",
   "icons": [
     {
       "src": "favicon.ico",
