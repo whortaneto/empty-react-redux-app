@@ -15,7 +15,7 @@ Platform:
 
 npm manifest: 
   {
-    "name": "viewer",
+    "name": "empty-app",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
