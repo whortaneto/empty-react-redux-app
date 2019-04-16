@@ -5,9 +5,9 @@ import { createSelector } from 'reselect';
  */
 import MODULE_NAME from './routingConstants';
 
-export const getRouting = state => state.get(MODULE_NAME);
-export const getPreviousLocations = state => state.getIn([MODULE_NAME, 'previousLocations']);
-export const getLocation = state => state.getIn([MODULE_NAME, 'location']).toJS();
+export const getRouting = state => state[MODULE_NAME];
+export const getPreviousLocations = state => state[MODULE_NAME].previousLocations;
+export const getLocation = state => state[MODULE_NAME].location;
 
 export const getPathName = createSelector(
   getLocation,
@@ -16,14 +16,14 @@ export const getPathName = createSelector(
 
 export const getPreviousLocation = createSelector(
   getPreviousLocations,
-  previousLocations => previousLocations.toJS().slice(-2)[0]
+  previousLocations => previousLocations.slice(-2)[0]
 );
 
 export const getPreviousPathName = createSelector(
   getPreviousLocations,
   getPathName,
   (previousLocations, currentPathName) => {
-    const lastValidLocation = previousLocations.findLast(item => item.get('pathname') !== currentPathName);
-    return lastValidLocation ? lastValidLocation.get('pathname') : '/';
+    const lastValidLocation = previousLocations.findLast(item => item.pathname !== currentPathName);
+    return lastValidLocation ? lastValidLocation.pathname : '/';
   }
 );

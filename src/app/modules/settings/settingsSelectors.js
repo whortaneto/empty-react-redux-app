@@ -4,6 +4,6 @@
  */
 import { MODULE_NAME } from './settingsConstants';
 
-export const getSettings = state => state.get(MODULE_NAME);
-export const getServer = state => state.getIn([MODULE_NAME, 'server']);
-export const hasServerChanged = state => state.getIn([MODULE_NAME, 'hasServerChanged']);
+export const getSettings = state => state[MODULE_NAME];
+export const getServer = state => state[MODULE_NAME].server;
+export const hasServerChanged = state => state[MODULE_NAME].hasServerChanged;

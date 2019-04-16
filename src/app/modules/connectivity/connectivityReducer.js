@@ -1,17 +1,16 @@
-import { asImmutable } from '../../util';
+import produce from 'immer';
 
 /**
  * Reducers
  */
 
-const initialState = asImmutable({
-});
+const initialState = {};
 
-export const reducer = (state = initialState, action) => {
+export const reducer = produce((state = initialState, action) => {
   switch (action.type) {
-  default:
-    return state;
+    default:
+      return state;
   }
-};
+});
 
 export default reducer;

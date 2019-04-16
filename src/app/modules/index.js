@@ -1,6 +1,4 @@
-// import { combineReducers } from 'redux'
-// TODO See if continues to use redux-immutable
-import { combineReducers } from 'redux-immutable';
+import { combineReducers } from 'redux';
 import * as routing from './routing';
 import * as settings from './settings';
 import * as connectivity from './connectivity';

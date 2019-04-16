@@ -2,7 +2,6 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware } from 'react-router-redux';
-import { Map } from 'immutable';
 import createHistory from 'history/createBrowserHistory';
 
 import { rootReducer } from './modules';
@@ -22,7 +21,7 @@ const createEnhancersAndMiddlewares = (isDevelopment, sagaMiddleware) => {
   return isDevelopment
     ? {
       enhancers: typeof devToolsExtension === 'function' ? [...enhancers, devToolsExtension()] : enhancers,
-      middlewares: [...middlewares, createLogger({ stateTransformer: state => state.toJS() })]
+      middlewares: [...middlewares, createLogger({ stateTransformer: state => state })]
     }
     : {
       enhancers,
@@ -34,7 +33,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const { enhancers, middlewares } = createEnhancersAndMiddlewares(process.env.NODE_ENV === 'development', sagaMiddleware);
 
-const initialState = Map();
+const initialState = {};
 
 const composedEnhancers = compose(
   applyMiddleware(...middlewares),

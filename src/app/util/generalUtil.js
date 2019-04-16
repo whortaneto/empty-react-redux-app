@@ -1,4 +1,4 @@
-import { getProperty } from './typeUtil';
+
 
 export const isTest = () => process.env.NODE_ENV === 'test';
 
@@ -13,20 +13,3 @@ export const requestActions = (moduleName, prefix) => ({
   SUCCEEDED: `${moduleName}/${prefix}_SUCCEEDED`,
   FAILED: `${moduleName}/${prefix}_FAILED`
 });
-
-export const isRequestAction = (action) => {
-  if (!action) return false;
-  const payload = getProperty(action, 'payload');
-  if (!payload) return false;
-  const args = getProperty(payload, 'args');
-  if (!args) return false;
-  const actions = getProperty(args, 'actions');
-  if (!actions) return false;
-  return (
-    getProperty(actions, 'DEQUEUED') &&
-    getProperty(actions, 'QUEUED') &&
-    getProperty(actions, 'REQUESTED') &&
-    getProperty(actions, 'SUCCEEDED') &&
-    getProperty(actions, 'FAILED')
-  );
-};
